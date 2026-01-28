@@ -1,6 +1,9 @@
 <template>
-  <div class="bg-brand-dark min-h-screen text-white">
+  <div class="bg-brand-dark min-h-screen text-white flex flex-col">
     <SiteHeader />
-    <slot />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <SiteFooter />
   </div>
 </template>
