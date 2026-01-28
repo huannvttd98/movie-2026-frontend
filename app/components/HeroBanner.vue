@@ -80,9 +80,5 @@
         <div class="h-full w-1/3 bg-white/80"></div>
     </div>
 
-    <!-- Interesting for you -->
-    <div class="absolute bottom-4 left-10 md:left-20 text-white/80 text-lg font-medium">
-        Bạn đang quan tâm gì?
-    </div>
   </div>
 </template>
