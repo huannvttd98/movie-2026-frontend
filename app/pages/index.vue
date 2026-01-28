@@ -21,6 +21,8 @@
             :movies="usukMovies"
           />
         </div>
+
+        <Top10List :movies="top10Movies" />
       </div>
     </div>
   </div>
@@ -30,6 +32,67 @@
 useHead({
   title: 'RoPhim - Thảm Họa Thiên Thạch 2',
 })
+
+const top10Movies = [
+  {
+    title: 'Thảm Họa Thiên Thạch 2: Cuộc Di Tản',
+    originalTitle: 'Greenland 2: Migration',
+    image: 'https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=500&auto=format&fit=crop&q=60',
+    quality: 'P.Đề',
+    age: 'T16',
+    year: '2026',
+    duration: '1h 38m'
+  },
+  {
+    title: 'Anaconda: Đụng Độ Siêu Trăn',
+    originalTitle: 'Anaconda',
+    image: 'https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=500&auto=format&fit=crop',
+    quality: 'P.Đề',
+    age: 'T13',
+    year: '2025',
+    duration: '1h 39m'
+  },
+  {
+    title: 'Phi Vụ Động Trời 2',
+    originalTitle: 'Zootopia 2',
+    image: 'https://images.unsplash.com/photo-1551636898-4aecce7d67f5?w=500&auto=format&fit=crop',
+    quality: 'P.Đề',
+    dub: 'T.Minh',
+    age: 'K',
+    year: '2025',
+    duration: '1h 50m'
+  },
+  {
+    title: 'Quý Công Tử',
+    originalTitle: 'The Childe',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop',
+    quality: 'P.Đề',
+    age: 'T16',
+    year: '2023',
+    duration: '1h 58m'
+  },
+  {
+    title: 'Avatar: Lửa và Tro Tàn',
+    originalTitle: 'Avatar: Fire and Ash',
+    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&auto=format&fit=crop',
+    quality: 'P.Đề',
+    dub: 'T.Minh',
+    age: 'T13',
+    year: '2025',
+    duration: '3h 12m',
+    cam: true
+  },
+  {
+    title: 'Đại Ca',
+    originalTitle: 'Boss',
+    image: 'https://images.unsplash.com/photo-1596727147705-54a9d0822798?w=500&auto=format&fit=crop',
+    quality: 'P.Đề',
+    dub: 'T.Minh',
+    age: 'T16',
+    year: '2025',
+    duration: '1h 39m'
+  }
+]
 
 const koreanMovies = [
     {
