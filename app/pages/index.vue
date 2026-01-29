@@ -23,6 +23,16 @@
         </div>
 
         <Top10List :movies="top10Movies" />
+
+        <MovieCarousel
+          title="Điện Ảnh Chiều Thứ 7"
+          :movies="saturdayMovies"
+        />
+
+        <MovieCarousel
+          title="Phim Chiếu Rạp Cuối Năm"
+          :movies="saturdayMovies"
+        />
       </div>
     </div>
   </div>
@@ -32,6 +42,65 @@
 useHead({
   title: 'RoPhim - Thảm Họa Thiên Thạch 2',
 })
+
+const saturdayMovies = [
+  {
+    id: 401,
+    title: 'Đêm Ở Viện Bảo Tàng: Bí Mật Hầm Mộ',
+    originalTitle: 'Night at the Museum: Secret of the Tomb',
+    image: 'https://images.unsplash.com/photo-1596727147705-54a9d0822798?w=500&auto=format&fit=crop',
+    quality: 'Full HD'
+  },
+  {
+    id: 402,
+    title: 'Vùng Đất Quỷ Dữ 6: Hồi Cuối',
+    originalTitle: 'Resident Evil: The Final Chapter',
+    image: 'https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=500&auto=format&fit=crop',
+    quality: 'Full HD'
+  },
+  {
+    id: 403,
+    title: 'Vùng Đất Quỷ Dữ',
+    originalTitle: 'Resident Evil',
+    image: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&auto=format&fit=crop',
+    quality: 'Full HD'
+  },
+  {
+    id: 404,
+    title: 'Chạng Vạng',
+    originalTitle: 'Twilight',
+    image: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cd4?w=500&auto=format&fit=crop',
+    quality: 'Full HD'
+  },
+  {
+    id: 405,
+    title: 'Các Vị Thần Ai Cập',
+    originalTitle: 'Gods of Egypt',
+    image: 'https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=500&auto=format&fit=crop',
+    quality: 'Full HD'
+  },
+  {
+    id: 406,
+    title: 'Hừng Đông: Phần 1',
+    originalTitle: 'The Twilight Saga: Breaking Dawn - Part 1',
+    image: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&auto=format&fit=crop',
+    quality: 'Full HD'
+  },
+  {
+    id: 407,
+    title: 'Ngày Thanh Trừng',
+    originalTitle: 'The Purge',
+    image: 'https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?w=500&auto=format&fit=crop',
+    quality: 'Full HD'
+  },
+  {
+    id: 408,
+    title: 'Trăng Non',
+    originalTitle: 'The Twilight Saga: New Moon',
+    image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500&auto=format&fit=crop',
+    quality: 'Full HD'
+  }
+]
 
 const top10Movies = [
   {
