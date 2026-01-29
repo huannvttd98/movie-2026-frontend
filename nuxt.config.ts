@@ -6,6 +6,11 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
+  runtimeConfig: {
+    public: {
+      apiBase: "http://localhost:8000/api"
+    }
+  },
   app: {
     head: {
       link: [
