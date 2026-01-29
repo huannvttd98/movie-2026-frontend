@@ -50,13 +50,44 @@
           </div>
         </div>
 
-        <button class="flex items-center gap-1 hover:text-brand-gold transition-colors">
-          Quốc gia <Icon name="ph:caret-down" class="w-3 h-3" />
-        </button>
+        <div class="relative group">
+          <button class="flex items-center gap-1 hover:text-brand-gold transition-colors py-6">
+            Quốc gia <Icon name="ph:caret-down" class="w-3 h-3 transition-transform group-hover:rotate-180" />
+          </button>
+
+          <div class="absolute top-full left-0 w-[600px] bg-[#111] border border-white/5 rounded-lg shadow-2xl p-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
+             <div class="grid grid-cols-4 gap-y-2 gap-x-1">
+                <NuxtLink
+                    v-for="country in countries"
+                    :key="country"
+                    :to="`/country/${country.toLowerCase().replace(/ /g, '-')}`"
+                    class="text-gray-300 hover:text-brand-gold hover:translate-x-1 transition-all text-[13px] py-1.5 block"
+                >
+                    {{ country }}
+                </NuxtLink>
+             </div>
+          </div>
+        </div>
         <NuxtLink to="#" class="hover:text-brand-gold transition-colors">Xem Chung</NuxtLink>
-        <button class="flex items-center gap-1 hover:text-brand-gold transition-colors">
-          Thêm <Icon name="ph:caret-down" class="w-3 h-3" />
-        </button>
+
+        <div class="relative group">
+          <button class="flex items-center gap-1 hover:text-brand-gold transition-colors py-6">
+            Thêm <Icon name="ph:caret-down" class="w-3 h-3 transition-transform group-hover:rotate-180" />
+          </button>
+
+          <div class="absolute top-full right-0 w-[300px] bg-[#111] border border-white/5 rounded-lg shadow-2xl p-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
+             <div class="grid grid-cols-3 gap-y-2 gap-x-1">
+                <NuxtLink
+                    v-for="year in years"
+                    :key="year"
+                    :to="`/year/${year}`"
+                    class="text-gray-300 hover:text-brand-gold hover:translate-x-1 transition-all text-[13px] py-1.5 block"
+                >
+                    {{ year }}
+                </NuxtLink>
+             </div>
+          </div>
+        </div>
         <NuxtLink to="#" class="flex items-center gap-2 text-brand-gold bg-brand-gold/10 px-3 py-1.5 rounded-full hover:bg-brand-gold/20 transition-colors">
           <span class="bg-brand-gold text-brand-dark text-[10px] font-bold px-1 rounded">NEW</span>
           Rổ Bóng
@@ -99,5 +130,24 @@ const genres = [
   "Truyền Hình", "Tuổi Trẻ", "Tài Liệu", "Tâm Lý",
   "Tình Cảm", "Tập Luyện", "Viễn Tưởng", "Võ Thuật",
   "Xuyên Không", "Đau Thương", "Đời Thường", "Ẩm Thực"
+]
+
+const countries = [
+  "Âu Mỹ", "Anh", "Trung Quốc", "Indonesia",
+  "Việt Nam", "Pháp", "Hồng Kông", "Hàn Quốc",
+  "Nhật Bản", "Thái Lan", "Đài Loan", "Philippines",
+  "Nga", "Hà Lan", "Tây Ban Nha", "Ý",
+  "Brazil", "Mexico", "Canada", "Đức",
+  "Thổ Nhĩ Kỳ", "Ấn Độ", "Úc", "Thụy Điển",
+  "Đan Mạch", "Na Uy", "Ba Lan", "Ireland",
+  "Malaysia", "Singapore", "Bồ Đào Nha", "Phần Lan",
+  "Bỉ", "Thụy Sĩ", "Ukraina", "Nam Phi"
+]
+
+const years = [
+  "2026", "2025", "2024", "2023",
+  "2022", "2021", "2020", "2019",
+  "2018", "2017", "2016", "2015",
+  "2014", "2013", "2012", "Trước 2012"
 ]
 </script>
