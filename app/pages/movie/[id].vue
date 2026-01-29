@@ -1,6 +1,22 @@
 <template>
   <div>
     <div class="relative w-full h-[70vh] min-h-[500px] bg-brand-dark overflow-hidden font-sans text-white">
+      <!-- Video Player Overlay -->
+      <div v-if="showPlayer" class="absolute inset-0 z-50 bg-black">
+        <iframe
+          :src="movie.videoUrl"
+          class="w-full h-full"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+        <button
+          @click="showPlayer = false"
+          class="absolute top-4 right-4 bg-black/50 hover:bg-brand-gold hover:text-brand-dark text-white rounded-full p-2 transition-colors">
+          <Icon name="ph:x" class="w-8 h-8" />
+        </button>
+      </div>
+
       <!-- Background Image -->
       <div class="absolute inset-0 z-0">
         <img
@@ -52,7 +68,7 @@
 
           <!-- Actions -->
           <div class="flex items-center gap-4">
-            <button class="bg-brand-gold hover:bg-yellow-400 text-brand-dark font-bold py-3 px-8 rounded-full flex items-center gap-2 transition-transform hover:scale-105">
+            <button @click="showPlayer = true" class="bg-brand-gold hover:bg-yellow-400 text-brand-dark font-bold py-3 px-8 rounded-full flex items-center gap-2 transition-transform hover:scale-105">
               <Icon name="ph:play-fill" class="w-6 h-6" />
               Xem Ngay
             </button>
@@ -139,6 +155,7 @@
 <script setup lang="ts">
 const route = useRoute();
 const id = route.params.id;
+const showPlayer = ref(false);
 
 // Mock data based on ID (real app would fetch from API)
 // For now we just return a static object but we could use the ID to customize it slightly if needed
@@ -148,6 +165,7 @@ const movie = computed(() => {
     title: 'Thảm Họa Thiên Thạch 2: Cuộc Di Tản',
     originalTitle: 'Greenland 2: Migration',
     image: 'https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2670&auto=format&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/sJt_i0hOugA?list=RDsJt_i0hOugA', // Mock trailer URL
     quality: 'Full HD',
     age: 'T16',
     year: '2026',
