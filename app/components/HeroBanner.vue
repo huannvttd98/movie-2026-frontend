@@ -22,51 +22,53 @@
 
     <!-- Main Content -->
     <div class="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center pt-20">
-      <div class="max-w-3xl animate-fadeIn">
-        <!-- Titles -->
-        <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-2 leading-tight drop-shadow-lg">
-          {{ activeMovie.title }}
-        </h1>
-        <h2 class="text-2xl md:text-4xl font-serif text-gray-200 mb-6 italic tracking-wide">
-          {{ activeMovie.subtitle }}
-        </h2>
-        <p class="text-brand-gold text-sm mb-4">{{ activeMovie.originalTitle }}</p>
+      <transition name="slide-text" mode="out-in">
+        <div :key="activeMovie.id" class="max-w-3xl">
+          <!-- Titles -->
+          <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-2 leading-tight drop-shadow-lg">
+            {{ activeMovie.title }}
+          </h1>
+          <h2 class="text-2xl md:text-4xl font-serif text-gray-200 mb-6 italic tracking-wide">
+            {{ activeMovie.subtitle }}
+          </h2>
+          <p class="text-brand-gold text-sm mb-4">{{ activeMovie.originalTitle }}</p>
 
-        <!-- Metadata Badges -->
-        <div class="flex flex-wrap items-center gap-3 mb-6 font-medium text-xs md:text-sm">
-          <span class="border border-brand-gold text-brand-gold px-2 py-0.5 rounded bg-brand-gold/10">IMDb {{ activeMovie.imdb }}</span>
-          <span class="bg-white text-black px-2 py-0.5 rounded font-bold">{{ activeMovie.age }}</span>
-          <span class="border border-gray-600 px-2 py-0.5 rounded">{{ activeMovie.year }}</span>
-          <span class="border border-gray-600 px-2 py-0.5 rounded">{{ activeMovie.duration }}</span>
+          <!-- Metadata Badges -->
+          <div class="flex flex-wrap items-center gap-3 mb-6 font-medium text-xs md:text-sm">
+            <span class="border border-brand-gold text-brand-gold px-2 py-0.5 rounded bg-brand-gold/10">IMDb {{ activeMovie.imdb }}</span>
+            <span class="bg-white text-black px-2 py-0.5 rounded font-bold">{{ activeMovie.age }}</span>
+            <span class="border border-gray-600 px-2 py-0.5 rounded">{{ activeMovie.year }}</span>
+            <span class="border border-gray-600 px-2 py-0.5 rounded">{{ activeMovie.duration }}</span>
+          </div>
+
+          <!-- Genres -->
+          <div class="flex flex-wrap gap-2 text-xs md:text-sm text-gray-300 mb-6 font-medium">
+              <span v-for="tag in activeMovie.tags" :key="tag" class="hover:text-brand-gold cursor-pointer transition-colors bg-white/5 px-2 py-0.5 rounded">
+                  {{ tag }}
+              </span>
+          </div>
+
+          <!-- Description -->
+          <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-8 max-w-2xl line-clamp-3">
+            {{ activeMovie.description }}
+          </p>
+
+          <!-- Actions -->
+          <div class="flex items-center gap-4">
+            <button class="bg-brand-gold hover:bg-yellow-400 text-brand-dark rounded-full w-14 h-14 flex items-center justify-center transition-transform hover:scale-105 shadow-brand-gold/50 shadow-lg">
+              <Icon name="ph:play-fill" class="w-6 h-6 ml-1" />
+            </button>
+
+            <button class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-full w-12 h-12 flex items-center justify-center transition-colors border border-white/10">
+              <Icon name="ph:heart-fill" class="w-5 h-5" />
+            </button>
+
+            <NuxtLink :to="`/movie/${activeMovie.id}`" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-full w-12 h-12 flex items-center justify-center transition-colors border border-white/10">
+              <Icon name="ph:info" class="w-6 h-6" />
+            </NuxtLink>
+          </div>
         </div>
-
-        <!-- Genres -->
-        <div class="flex flex-wrap gap-2 text-xs md:text-sm text-gray-300 mb-6 font-medium">
-            <span v-for="tag in activeMovie.tags" :key="tag" class="hover:text-brand-gold cursor-pointer transition-colors bg-white/5 px-2 py-0.5 rounded">
-                {{ tag }}
-            </span>
-        </div>
-
-        <!-- Description -->
-        <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-8 max-w-2xl line-clamp-3">
-          {{ activeMovie.description }}
-        </p>
-
-        <!-- Actions -->
-        <div class="flex items-center gap-4">
-          <button class="bg-brand-gold hover:bg-yellow-400 text-brand-dark rounded-full w-14 h-14 flex items-center justify-center transition-transform hover:scale-105 shadow-brand-gold/50 shadow-lg">
-            <Icon name="ph:play-fill" class="w-6 h-6 ml-1" />
-          </button>
-
-          <button class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-full w-12 h-12 flex items-center justify-center transition-colors border border-white/10">
-            <Icon name="ph:heart-fill" class="w-5 h-5" />
-          </button>
-
-          <NuxtLink :to="`/movie/${activeMovie.id}`" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-full w-12 h-12 flex items-center justify-center transition-colors border border-white/10">
-            <Icon name="ph:info" class="w-6 h-6" />
-          </NuxtLink>
-        </div>
-      </div>
+      </transition>
     </div>
 
     <!-- Right Side Thumbnails (Absolute Position) -->
@@ -227,6 +229,34 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* Image Transition (Right to Left) */
+.slide-image-enter-active,
+.slide-image-leave-active {
+  transition: all 0.7s ease-in-out;
+}
+.slide-image-enter-from {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.slide-image-leave-to {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+/* Text Transition (Left to Right) */
+.slide-text-enter-active,
+.slide-text-leave-active {
+  transition: all 0.7s ease-in-out;
+}
+.slide-text-enter-from {
+  transform: translateX(-100px);
+  opacity: 0;
+}
+.slide-text-leave-to {
+  transform: translateX(100px);
+  opacity: 0;
+}
+
 /* Optional keyframes for loading bar shimmer if strict tailwind not enough */
 @keyframes shimmer {
   100% {
