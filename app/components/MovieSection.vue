@@ -22,10 +22,11 @@
 
         <!-- Scroll Container -->
         <div class="flex gap-4 overflow-x-auto scrollbar-hide pb-4 snap-x">
-          <div
+          <NuxtLink
             v-for="(movie, index) in movies"
             :key="index"
-            class="snap-start flex-shrink-0 w-[200px] md:w-[220px] group/card cursor-pointer"
+            :to="`/movie/${movie.id}`"
+            class="snap-start flex-shrink-0 w-[200px] md:w-[220px] group/card cursor-pointer block"
           >
             <!-- Thumbnail -->
             <div class="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-800 mb-3">
@@ -59,7 +60,7 @@
             <p class="text-gray-500 text-xs truncate">
               {{ movie.originalTitle }}
             </p>
-          </div>
+          </NuxtLink>
         </div>
       </div>
 

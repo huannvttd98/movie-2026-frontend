@@ -11,10 +11,11 @@
        </button>
 
       <div class="flex gap-6 overflow-x-auto scrollbar-hide pb-8 snap-x px-2">
-        <div
+        <NuxtLink
           v-for="(movie, index) in movies"
           :key="index"
-          class="snap-start flex-shrink-0 w-[240px] group/card cursor-pointer"
+          :to="`/movie/${movie.id}`"
+          class="snap-start flex-shrink-0 w-[240px] group/card cursor-pointer block"
         >
             <!-- Poster -->
             <div class="relative aspect-[2/3] rounded-xl overflow-hidden mb-4 shadow-lg bg-gray-800">
@@ -54,7 +55,7 @@
                     </div>
                  </div>
             </div>
-        </div>
+        </NuxtLink>
       </div>
     </div>
   </div>

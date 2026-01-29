@@ -54,9 +54,9 @@
             <Icon name="ph:heart-fill" class="w-5 h-5" />
           </button>
 
-          <button class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-full w-12 h-12 flex items-center justify-center transition-colors">
+          <NuxtLink to="/movie/1" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-full w-12 h-12 flex items-center justify-center transition-colors">
             <Icon name="ph:info" class="w-6 h-6" />
-          </button>
+          </NuxtLink>
         </div>
       </div>
     </div>

@@ -35,6 +35,7 @@ useHead({
 
 const top10Movies = [
   {
+    id: 1,
     title: 'Thảm Họa Thiên Thạch 2: Cuộc Di Tản',
     originalTitle: 'Greenland 2: Migration',
     image: 'https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=500&auto=format&fit=crop&q=60',
@@ -44,6 +45,7 @@ const top10Movies = [
     duration: '1h 38m'
   },
   {
+    id: 2,
     title: 'Anaconda: Đụng Độ Siêu Trăn',
     originalTitle: 'Anaconda',
     image: 'https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=500&auto=format&fit=crop',
@@ -53,6 +55,7 @@ const top10Movies = [
     duration: '1h 39m'
   },
   {
+    id: 3,
     title: 'Phi Vụ Động Trời 2',
     originalTitle: 'Zootopia 2',
     image: 'https://images.unsplash.com/photo-1551636898-4aecce7d67f5?w=500&auto=format&fit=crop',
@@ -63,6 +66,7 @@ const top10Movies = [
     duration: '1h 50m'
   },
   {
+    id: 4,
     title: 'Quý Công Tử',
     originalTitle: 'The Childe',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop',
@@ -72,6 +76,7 @@ const top10Movies = [
     duration: '1h 58m'
   },
   {
+    id: 5,
     title: 'Avatar: Lửa và Tro Tàn',
     originalTitle: 'Avatar: Fire and Ash',
     image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&auto=format&fit=crop',
@@ -83,6 +88,7 @@ const top10Movies = [
     cam: true
   },
   {
+    id: 6,
     title: 'Đại Ca',
     originalTitle: 'Boss',
     image: 'https://images.unsplash.com/photo-1596727147705-54a9d0822798?w=500&auto=format&fit=crop',
@@ -96,6 +102,7 @@ const top10Movies = [
 
 const koreanMovies = [
     {
+        id: 101,
         title: 'Cơn Say Mùa Xuân',
         originalTitle: 'Spring Fever',
         image: 'https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=500&auto=format&fit=crop&q=60',
@@ -103,24 +110,28 @@ const koreanMovies = [
         rating: '6'
     },
     {
+        id: 102,
         title: 'Thử Thách Thần Tượng',
         originalTitle: 'Running Man',
         image: 'https://images.unsplash.com/photo-1596727147705-54a9d0822798?w=500&auto=format&fit=crop&q=60',
         episodes: '787'
     },
     {
+        id: 103,
         title: 'Luật Sư Của Thần Tượng',
         originalTitle: 'Idol I',
         image: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&auto=format&fit=crop&q=60',
         episodes: '12'
     },
     {
+        id: 104,
         title: 'Địa Ngục Độc Thân',
         originalTitle: 'Single\'s Inferno',
         image: 'https://images.unsplash.com/photo-1535016120720-40c6874c3b13?w=500&auto=format&fit=crop&q=60',
         episodes: '7'
     },
     {
+        id: 105,
         title: 'Thời Vàng Son',
         originalTitle: 'Our Golden Days',
         image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=500&auto=format&fit=crop&q=60',
@@ -131,30 +142,35 @@ const koreanMovies = [
 
 const chineseMovies = [
     {
+        id: 201,
         title: 'Thiếu Niên Ca Hành : Thiên Hạ Vô Song',
         originalTitle: 'The Blood of Youth: Quest of Heroic Hearts',
         image: 'https://images.unsplash.com/photo-1514539079130-25950c84af65?w=500&auto=format&fit=crop&q=60',
         episodes: '5'
     },
     {
+        id: 202,
         title: 'Nữ Pháp Y (Ngự Tứ Tiểu Ngỗ Tác)',
         originalTitle: 'The Imperial Coroner',
         image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500&auto=format&fit=crop&q=60',
         episodes: '28'
     },
     {
+        id: 203,
         title: 'Thu Hút Mãnh Liệt',
         originalTitle: 'Affinity',
         image: 'https://images.unsplash.com/photo-1614583225154-5 fc796907717?w=500&auto=format&fit=crop&q=60',
         episodes: '20'
     },
     {
+        id: 204,
         title: 'Chuyện Lớn Nơi Thành Phố Nhỏ',
         originalTitle: 'The Dream Maker',
         image: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&auto=format&fit=crop&q=60',
         episodes: '35'
     },
     {
+        id: 205,
         title: 'Thanh Dao Không Muốn Làm Sát Thủ',
         originalTitle: 'How to Train Your Killer',
         image: 'https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?w=500&auto=format&fit=crop&q=60',
@@ -164,30 +180,35 @@ const chineseMovies = [
 // US-UK Movies
 const usukMovies = [
     {
+        id: 301,
         title: 'Người Nhện: Vũ Trụ Mới',
         originalTitle: 'Spider-Man: Into the Spider-Verse',
         image: 'https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?w=500&auto=format&fit=crop&q=60',
         episodes: '1'
     },
     {
+        id: 302,
         title: 'Kẻ Hủy Diệt: Khởi Đầu Mới',
         originalTitle: 'Terminator: Dark Fate',
         image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500&auto=format&fit=crop&q=60',
         episodes: '1'
     },
     {
+        id: 303,
         title: 'Ma Trận: Hồi Sinh',
         originalTitle: 'The Matrix Resurrections',
         image: 'https://images.unsplash.com/photo-1517602302552-471fe67acf66?w=500&auto=format&fit=crop&q=60',
         episodes: '1'
     },
     {
+        id: 304,
         title: 'Sát Thủ John Wick 4',
         originalTitle: 'John Wick: Chapter 4',
         image: 'https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?w=500&auto=format&fit=crop&q=60',
         episodes: '1'
     },
     {
+        id: 305,
         title: 'Fast & Furious 9',
         originalTitle: 'F9',
         image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&auto=format&fit=crop&q=60',
