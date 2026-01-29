@@ -4,8 +4,8 @@
       <!-- Logo & Search -->
       <div class="flex items-center gap-8">
         <NuxtLink to="/" class="flex items-center gap-2">
-          <div class="bg-brand-gold rounded-full p-1.5 ">
-            <Icon name="ph:play-fill" class="text-brand-dark w-5 h-5" />
+          <div class="bg-brand-gold rounded-full w-8 h-8 flex items-center justify-center">
+            <Icon name="ph:play-fill" class="text-brand-dark w-5 h-5 " />
           </div>
           <div class="flex flex-col leading-none">
             <span class="text-white font-bold text-xl tracking-wide">RoPhim</span>
