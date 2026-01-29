@@ -28,8 +28,8 @@
 
       <!-- Navigation -->
       <nav class="hidden xl:flex items-center gap-6 text-sm font-medium text-gray-300">
-        <NuxtLink to="#" class="hover:text-brand-gold transition-colors">Phim Lẻ</NuxtLink>
-        <NuxtLink to="#" class="hover:text-brand-gold transition-colors">Phim Bộ</NuxtLink>
+        <NuxtLink to="/genre/phim-le" class="hover:text-brand-gold transition-colors">Phim Lẻ</NuxtLink>
+        <NuxtLink to="/genre/phim-bo" class="hover:text-brand-gold transition-colors">Phim Bộ</NuxtLink>
         <button class="flex items-center gap-1 hover:text-brand-gold transition-colors">
           Thể loại <Icon name="ph:caret-down" class="w-3 h-3" />
         </button>
