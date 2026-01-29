@@ -1,20 +1,154 @@
 <template>
   <div>
     <div class="relative w-full h-[70vh] min-h-[500px] bg-brand-dark overflow-hidden font-sans text-white">
-      <!-- Video Player Overlay -->
-      <div v-if="showPlayer" class="absolute inset-0 z-50 bg-black">
-        <iframe
-          :src="movie.videoUrl"
-          class="w-full h-full"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-        <button
-          @click="showPlayer = false"
-          class="absolute top-4 right-4 bg-black/50 hover:bg-brand-gold hover:text-brand-dark text-white rounded-full p-2 transition-colors">
-          <Icon name="ph:x" class="w-8 h-8" />
-        </button>
+
+      <!-- Video Player Overlay (Full Screen Mode) -->
+      <div v-if="showPlayer" class="fixed inset-0 z-50 bg-black flex flex-col animate-fadeIn">
+        <!-- Main Player Area -->
+        <div class="relative flex-1 bg-black flex items-center justify-center group overflow-hidden">
+             <!-- Video Mockup -->
+             <video
+                src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                class="w-full h-full object-contain"
+                poster="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2670"
+                autoplay
+                loop
+                muted
+             ></video>
+
+             <!-- Top Controls (Back) -->
+             <div class="absolute top-0 left-0 right-0 p-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-black/80 to-transparent">
+                <button @click="showPlayer = false" class="text-white/80 hover:text-white flex items-center gap-2 transition-colors">
+                    <Icon name="ph:arrow-left" class="w-8 h-8" />
+                    <span class="font-bold text-lg">{{ movie.title }}</span>
+                </button>
+             </div>
+
+             <!-- Center Play Button (Optional - if paused) -->
+             <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0">
+                <Icon name="ph:play-circle-fill" class="w-24 h-24 text-white/50" />
+             </div>
+
+             <!-- Bottom Controls Overlay -->
+             <div class="absolute bottom-0 left-0 right-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <!-- Shadow Gradient -->
+                <div class="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/90 to-transparent pointer-events-none"></div>
+
+                <div class="relative px-6 pb-6">
+                    <!-- Progress Bar -->
+                    <div class="w-full h-1.5 bg-white/20 rounded-full mb-4 cursor-pointer relative group/progress hover:h-2 transition-all">
+                        <div class="absolute top-0 left-0 h-full bg-brand-gold w-[14%] rounded-full relative">
+                            <div class="absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-brand-gold rounded-full scale-0 group-hover/progress:scale-100 transition-transform shadow-lg"></div>
+                        </div>
+                    </div>
+
+                    <!-- Controls Row -->
+                    <div class="flex items-center justify-between">
+                        <!-- Left Controls -->
+                        <div class="flex items-center gap-6">
+                            <!-- Play/Pause -->
+                            <button class="text-white hover:text-brand-gold transition-colors">
+                                <Icon name="ph:pause-circle-fill" class="w-12 h-12" />
+                            </button>
+
+                            <!-- Skip Buttons -->
+                            <div class="flex items-center gap-4">
+                                <button class="text-white/80 hover:text-white flex flex-col items-center gap-1 group/skip">
+                                    <Icon name="ph:arrow-counter-clockwise" class="w-6 h-6 group-active/skip:-rotate-45 transition-transform" />
+                                    <span class="text-[10px] font-bold">10s</span>
+                                </button>
+                                <button class="text-white/80 hover:text-white flex flex-col items-center gap-1 group/skip">
+                                    <Icon name="ph:arrow-clockwise" class="w-6 h-6 group-active/skip:rotate-45 transition-transform" />
+                                    <span class="text-[10px] font-bold">10s</span>
+                                </button>
+                            </div>
+
+                            <!-- Volume -->
+                            <div class="flex items-center gap-3 group/volume ml-2">
+                                <button class="text-white hover:text-brand-gold">
+                                    <Icon name="ph:speaker-high-fill" class="w-7 h-7" />
+                                </button>
+                                <div class="w-0 overflow-hidden group-hover/volume:w-24 transition-all duration-300">
+                                    <div class="h-1.5 bg-white/30 rounded-full w-20 cursor-pointer">
+                                        <div class="h-full bg-white w-2/3 rounded-full relative">
+                                            <div class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <!-- Time -->
+                             <div class="text-sm font-medium text-gray-300 ml-2 font-mono">
+                                <span class="text-white">00:14</span>
+                                <span class="mx-1 opacity-50">/</span>
+                                <span>2:09:35</span>
+                            </div>
+                        </div>
+
+                        <!-- Right Controls -->
+                        <div class="flex items-center gap-5">
+                            <button class="text-white/80 hover:text-brand-gold transition-colors" title="Picture in Picture">
+                                <Icon name="ph:picture-in-picture-fill" class="w-6 h-6" />
+                            </button>
+                             <button class="text-white/80 hover:text-brand-gold transition-colors" title="Settings">
+                                <Icon name="ph:gear-six-fill" class="w-6 h-6" />
+                            </button>
+                             <button class="text-white/80 hover:text-brand-gold transition-colors" title="Fullscreen">
+                                <Icon name="ph:corners-out-fill" class="w-6 h-6" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+
+        <!-- Bottom Action Bar -->
+        <div class="bg-[#121212] px-8 py-4 flex items-center justify-between border-t border-white/5 text-sm font-medium shrink-0 z-30">
+            <div class="flex items-center gap-8 text-gray-400">
+                <button class="flex items-center gap-2 hover:text-brand-gold transition-colors group">
+                    <Icon name="ph:heart-fill" class="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    Yêu thích
+                </button>
+                 <button class="flex items-center gap-2 hover:text-brand-gold transition-colors group">
+                    <Icon name="ph:plus-circle-fill" class="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    Thêm vào
+                </button>
+
+                <div class="h-6 w-px bg-white/10 mx-2"></div>
+
+                 <div class="flex items-center gap-3">
+                    <span class="text-gray-300">Bỏ qua giới thiệu</span>
+                    <button class="w-11 h-6 bg-gray-700 rounded-full relative px-1 flex items-center transition-colors hover:bg-gray-600">
+                        <div class="w-4 h-4 bg-gray-400 rounded-full shadow-sm"></div>
+                        <span class="absolute right-1.5 text-[10px] font-bold text-gray-400">OFF</span>
+                    </button>
+                </div>
+
+                 <div class="flex items-center gap-3">
+                    <span class="text-gray-300">Rạp phim</span>
+                    <button class="w-11 h-6 bg-gray-700 rounded-full relative px-1 flex items-center transition-colors hover:bg-gray-600">
+                        <div class="w-4 h-4 bg-gray-400 rounded-full shadow-sm"></div>
+                        <span class="absolute right-1.5 text-[10px] font-bold text-gray-400">OFF</span>
+                    </button>
+                </div>
+
+                <div class="h-6 w-px bg-white/10 mx-2"></div>
+
+                 <button class="flex items-center gap-2 hover:text-brand-gold transition-colors">
+                    <Icon name="ph:users-three-fill" class="w-5 h-5" />
+                    Xem chung
+                </button>
+                 <button class="flex items-center gap-2 hover:text-brand-gold transition-colors">
+                    <Icon name="ph:share-network-fill" class="w-5 h-5" />
+                    Chia sẻ
+                </button>
+            </div>
+
+             <button class="flex items-center gap-2 text-gray-400 hover:text-red-500 transition-colors">
+                <Icon name="ph:flag-fill" class="w-5 h-5" />
+                Báo lỗi
+            </button>
+        </div>
       </div>
 
       <!-- Background Image -->
