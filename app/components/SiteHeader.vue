@@ -104,10 +104,10 @@
           </div>
         </button>
 
-        <button class="flex items-center gap-2 bg-gray-100 hover:bg-white text-brand-dark font-semibold text-sm px-4 py-2 rounded-full transition-colors">
+        <NuxtLink to="/login" class="flex items-center gap-2 bg-gray-100 hover:bg-white text-brand-dark font-semibold text-sm px-4 py-2 rounded-full transition-colors">
           <Icon name="ph:user-fill" class="w-4 h-4" />
-          <span>Thành viên</span>
-        </button>
+          <span>Đăng nhập</span>
+        </NuxtLink>
       </div>
     </div>
   </header>
